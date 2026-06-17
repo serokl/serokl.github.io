@@ -1,0 +1,22 @@
+# Sergei Okladnikov
+
+> Lead Product Manager specializing in AI/LLM products at Tinkoff Bank, Moscow.
+
+## About
+
+Sergei Okladnikov is a 27-year-old product manager based in Moscow, Russia. He focuses on AI-powered products — LLM agents, ML-driven experiences, and automation in fintech. Outside work he plays tennis, surfs, snowboards, and travels extensively.
+
+## Experience
+
+- **Tinkoff** — Lead Product Manager (Oct 2025 – Present): Leading LLM agent direction in the bank's credit domain. Owns strategy, roadmap, and delivery for agent-driven customer scenarios. Manages a ~25-person product team.
+- **Tinkoff** — ML Product Manager (Nov 2024 – Oct 2025): Chat and voice bots for customer support. Delivered 10+ AI-driven features (ML/NLP, LLM, SFT/GRPO, LoRA). Saved $XM+ in operational costs.
+- **Yandex** — Product Manager, BNPL (Feb 2024 – Nov 2024): BNPL services for external merchants. Increased click-to-pay conversion by 1pp.
+- **Yandex** — Product Manager, Ride-Hailing (Dec 2022 – Feb 2024): Pricing algorithms, marketplace metrics, supply management across Russia and CIS.
+- **Yandex** — Product Analyst, AdTech (Aug 2021 – Dec 2022): Automated advertising for SMB. CPA down 10%, built ML uplift model (+1.2% retention).
+
+## Contact
+
+- Website: https://greatbanana.com
+- GitHub: https://github.com/serokl
+- Telegram: https://t.me/serokl
+- Email: iamserokl@gmail.com
