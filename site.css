@@ -1,0 +1,144 @@
+/* ============================================================
+   Sergey — personal site. Shared design system.
+   Dark warm editorial: deep espresso + terracotta, Instrument Serif.
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  --cream:      #15100c;  /* page background (dark) */
+  --cream-2:    #1d1712;  /* elevated surface */
+  --cream-3:    #261e17;  /* elevated surface 2 */
+  --ink:        #f1e7d7;  /* primary light text */
+  --ink-soft:   #b6a895;
+  --ink-faint:  #867a69;
+  --terra:      #d4744d;
+  --terra-deep: #b65b39;
+  --clay:       #e0a87f;
+  --paper:      #f6efe2;  /* always-light text on colored/dark surfaces */
+  --line:       rgba(241, 231, 215, 0.13);
+
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans:  "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --mono:  "JetBrains Mono", ui-monospace, monospace;
+
+  --maxw: 1280px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* ---------- type utilities ---------- */
+.kicker {
+  font-family: var(--mono);
+  font-size: clamp(11px, 0.8vw, 13px);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.display {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+em.accent { font-style: italic; color: var(--terra); }
+
+/* ---------- layout ---------- */
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(24px, 5vw, 72px); }
+section { position: relative; }
+
+/* ---------- nav ---------- */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px clamp(24px, 5vw, 72px);
+  transition: background 0.4s var(--ease), backdrop-filter 0.4s var(--ease), border-color 0.4s var(--ease), padding 0.4s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+.nav.scrolled {
+  background: rgba(21, 16, 12, 0.82);
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  border-bottom-color: var(--line);
+  padding-top: 16px; padding-bottom: 16px;
+}
+.nav .logo { font-family: var(--serif); font-size: 26px; text-decoration: none; letter-spacing: -0.01em; }
+.nav .logo .dot { color: var(--terra); }
+.nav .links { display: flex; gap: clamp(18px, 3vw, 40px); align-items: center; }
+.nav .links a {
+  text-decoration: none; font-size: 15px; font-weight: 600; color: var(--ink-soft);
+  position: relative; padding: 4px 0; transition: color 0.25s var(--ease);
+}
+.nav .links a::after {
+  content: ""; position: absolute; left: 0; right: 100%; bottom: -2px; height: 2px;
+  background: var(--terra); transition: right 0.3s var(--ease);
+}
+.nav .links a:hover { color: var(--ink); }
+.nav .links a:hover::after { right: 0; }
+.nav .links a.active { color: var(--ink); }
+.nav .links a.active::after { right: 0; }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--ink); color: var(--cream);
+  padding: 16px 28px; border-radius: 999px;
+  font-weight: 600; font-size: 15px; text-decoration: none;
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease);
+  will-change: transform;
+}
+.btn:hover { transform: translateY(-2px); background: var(--terra); }
+.btn .arrow { transition: transform 0.3s var(--ease); }
+.btn:hover .arrow { transform: translateX(4px); }
+.btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn.ghost:hover { background: var(--ink); color: var(--cream); }
+
+/* ---------- footer ---------- */
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 56px 0 40px;
+  margin-top: 40px;
+}
+.footer .inner { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap; }
+.footer .big { font-family: var(--serif); font-size: clamp(40px, 7vw, 92px); line-height: 0.92; margin: 0; }
+.footer .meta { display: flex; flex-direction: column; gap: 8px; text-align: right; }
+.footer a.tg { font-size: 18px; font-weight: 600; text-decoration: none; color: var(--ink); }
+.footer a.tg:hover { color: var(--terra); }
+.footer .copy { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); }
+
+/* ---------- scroll reveal ----------
+   Visible is the DEFAULT. JS adds .is-pre to hide the start-state only when
+   motion is allowed; the observer removes it to animate in. If JS or the
+   observer ever fails, content stays visible. */
+.reveal { opacity: 1; transform: none; }
+.reveal.is-pre { opacity: 0; transform: translateY(28px); }
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+  .reveal.d1 { transition-delay: 0.08s; }
+  .reveal.d2 { transition-delay: 0.16s; }
+  .reveal.d3 { transition-delay: 0.24s; }
+  .reveal.d4 { transition-delay: 0.32s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- image slot styling ---------- */
+image-slot {
+  --is-placeholder-color: rgba(246,239,226,0.85);
+  --is-bg: var(--terra-deep);
+  font-family: var(--mono);
+}
